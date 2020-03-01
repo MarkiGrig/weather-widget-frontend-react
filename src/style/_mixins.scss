@@ -1,0 +1,48 @@
+@mixin tablet {
+	@media only screen and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet-min {
+	@media only screen and (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
+
+@mixin phone {
+	@media only screen and (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+
+@mixin phone-min {
+	@media only screen and (min-width: #{$tablet-width}) {
+		@content;
+
+	}
+}
+
+@mixin respond-to-max($custom) {
+	@media only screen and (max-width: $custom - 1) {
+		@content;
+	}
+}
+
+@mixin respond-to-min($custom1) {
+	@media only screen and (min-width: $custom1) {
+		@content;
+	}
+}
+
+@mixin trangle-polygon($custom-height, $custom-color) {
+    $top-margin-parameter: 3;
+
+    position: relative;
+    top: calc(#{$custom-height} / #{$top-margin-parameter});
+    width: 0;
+    height: 0;
+    border-left: calc(#{$custom-height} / 1) solid transparent;
+    border-right: calc(#{$custom-height} / 1) solid transparent;
+    border-top: $custom-height solid $custom-color;
+}

@@ -1,0 +1,19 @@
+.logo {
+    flex-direction: column;
+    color: inherit;
+    font-size: rem(32px);
+    user-select: none;
+    font-weight: bold;
+
+    &::after {
+        font-weight: normal;
+        display: block;
+        margin-top: rem(3px);
+        opacity: .7;
+        content: "погодные информеры";
+        text-transform: uppercase;
+        text-align: left;
+        font-size: rem(14px);
+        margin-left: rem(4px);
+    }
+}
