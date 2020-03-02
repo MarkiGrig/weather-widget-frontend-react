@@ -6,18 +6,19 @@ import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import cityReducer from "./reducers/cityReducer";
-import citySearchReducer from "./reducers/citySearchReducer";
+import citySearcherReducer from "./reducers/citySearcherReducer";
 
 const reducers = combineReducers({
-    citySearchState: citySearchReducer,
+    citySearcherState: citySearcherReducer,
     cityState: cityReducer
 });
 
 const initialState = {
-    citySearchState: '',
+    citySearcherState: [],
     cityState: {
         name: 'Пермь',
-        id: 511196 //Perm Id from database
+        //Perm Id from database (openweathermap.com)
+        id: 511196
     }
 };
 
