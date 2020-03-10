@@ -1,7 +1,7 @@
 import React from 'react';
 import './Logo.scss'
 
-function Logo() {
+const Logo = () => {
     return (
         <div className='logo'>
             <span>
@@ -14,4 +14,4 @@ function Logo() {
     );
 }
 
-export default Logo();
+export default Logo;

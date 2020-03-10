@@ -1,0 +1,64 @@
+@import "../../style/commonStyle";
+
+.header {
+    $border-bottom-color: $blue1;
+    $header-top-padding: rem(20px);
+    $header-bottom-padding: rem(15px);
+    $logo-font-size: rem(28px);
+    $button-height: rem(39px);
+
+    padding: $header-top-padding 0 $header-bottom-padding;
+    border-bottom: 3px solid $border-bottom-color;
+    user-select: none;
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    div[class^="header__"] {
+        display: flex;
+    }
+
+    &__citySelector,
+    &__account {
+        font-size: rem(18px);
+        height: $button-height;
+        align-items: center;
+        cursor: pointer;
+        transition: color .5s;
+
+        &:hover {
+            color: $blue-hover;
+        }
+
+        &:active {
+            color: $blue-active;
+        }
+    }
+
+    &__logo {
+        flex-grow: 2;
+        color: #2b2b2b;
+
+        .logo {
+            &__letter_colored {
+                color: $blue1;
+            }
+
+            &::after {
+                color: black;
+            }
+        }
+    }
+
+    &__citySelector {
+        margin-right: rem(30px);
+    }
+
+    &__account_active {
+        color: $blue-active;
+    }
+}

@@ -1,0 +1,51 @@
+@import "../../style/commonStyle";
+
+.footer {
+    $background-color: $blue2;
+    $color: white;
+    $logo-font-size: rem(24px);
+    $height: 200px;
+    $padding-top: 30px;
+
+    display: flex;
+    height: $height;
+    padding-top: $padding-top;
+    background: $background-color;
+    color: $color;
+
+    .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    div[class^="footer__"] {
+        display: flex;
+    }
+
+    &__logo {
+        font-size: 14px;
+
+        .logo {
+            font-size: rem(28px);
+
+            &::after {
+                font-size: rem(12px);
+                margin-left: rem(3px);
+            }
+        }
+    }
+
+    &__contacts {
+        margin-top: rem(4px);
+        flex-direction: column;
+        opacity: .5;
+
+        &-group {
+            justify-content: flex-end;
+            margin-top: rem(5px);
+        }
+    }
+}

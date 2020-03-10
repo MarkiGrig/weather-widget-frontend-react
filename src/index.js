@@ -1,25 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/style.scss';
+import './style/globalStyle.scss';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import App from './App';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import cityReducer from "./reducers/cityReducer";
 import citySearcherReducer from "./reducers/citySearcherReducer";
+import popupReducer from "./reducers/popupReducer";
+import loginReducer from "./reducers/loginReducer";
 
 const reducers = combineReducers({
     citySearcherState: citySearcherReducer,
-    cityState: cityReducer
+    cityState: cityReducer,
+    popupState: popupReducer,
+    loginState: loginReducer
 });
 
 const initialState = {
     citySearcherState: [],
-    cityState: {
-        name: 'Пермь',
-        //Perm Id from database (openweathermap.com)
-        id: 511196
-    }
+    cityState: 'Пермь',
+    popupState: false,
+    loginState: false
 };
 
 /* eslint-disable no-underscore-dangle */
@@ -32,7 +35,9 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <Route path='/' component={App} />
+        </Router>
     </Provider>,
     document.getElementById('root')
 );

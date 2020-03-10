@@ -1,4 +1,4 @@
-export const changeCityAction = (city) => ({
+export const changeCityAction = (cityName) => ({
     type: 'CHANGE_CITY',
-    city
+    cityName
 });

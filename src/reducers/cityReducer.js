@@ -1,7 +1,7 @@
-const cityReducer = (state = { name: '',  id: 0 }, action) => {
+const cityReducer = (state = '', action) => {
     switch (action.type) {
         case 'CHANGE_CITY': {
-            return state.id !== action.city.id ? action.city : state;
+            return state !== action.cityName ? action.cityName : state;
         }
         default:
             return state;

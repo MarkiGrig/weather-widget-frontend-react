@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.scss';
-import CitySelectorContainer from "./components/CitySelector/CitySelectorContainer";
-import { connect } from 'react-redux';
-
+import WeatherWidget from "./components/WeatherWidget/WeatherWidget";
 
 const App = () => {
   return (
       <div>
-        <CitySelectorContainer />
+        <WeatherWidget />
       </div>
   );
 };

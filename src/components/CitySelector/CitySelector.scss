@@ -1,0 +1,140 @@
+@import "../../style/commonStyle";
+
+.citySelector {
+    display: flex;
+    position: relative;
+    user-select: none;
+
+    &__current {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: rem(5px) 0;
+
+        &:hover {
+            &::after {
+                border-top-color: $blue-hover;
+            }
+        }
+
+        &::after {
+            margin-left: rem(5px);
+            content: "";
+            transition: border-color .5s, transform .5s;
+            @include trangle-polygon(rem(5px), grey);
+        }
+    }
+
+    &_active {
+        &::before {
+            cursor: default;
+            position: fixed;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            /*background: radial-gradient(black, rebeccapurple);*/
+        }
+
+        .citySelector__current {
+            z-index: 2;
+            position: relative;
+            color: $blue-hover;
+
+            &::after {
+                border-top-color: $blue-hover;
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    &__selector{
+        cursor: default;
+        z-index: 999;
+        overflow: hidden;
+        color: black;
+        position: absolute;
+        transition: max-height .05s ease-out, opacity .2s;
+        max-height: 0;
+        top: rem(30px);
+        left: -10px;
+        opacity: 0;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(62, 75, 102, .7);
+        border-radius: 4px;
+
+        &-options {
+            border-top: 1px solid #E2E2E2;
+
+            &-item {
+                border-bottom: 1px solid #E2E2E2;
+                padding: 10px 20px;
+                transition: background-color .3s linear;
+                cursor: pointer;
+
+                &:hover {
+                    background: #E2E2E2;
+                }
+
+                &:last-of-type {
+                    border-bottom-width: 0;
+                }
+            }
+        }
+
+        &_active {
+            max-height: 290px;
+            opacity: 1;
+        }
+
+        &-input {
+            width: 230px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 5px 8px 10px;
+            margin: 13px 10px;
+            border-radius: 40px;
+            background-color: #e2e2e2;
+            height: 36px;
+
+            &-item {
+                width: 170px;
+            }
+
+            &-icon {
+                padding: 0 10px;
+
+                /*svg {
+                    cursor: pointer;
+                    path {
+                        transition: fill .5s;
+                    }
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    path {
+                        fill: $blue-hover;
+                    }
+                }
+
+                svg {
+                    path {
+                        transition: fill .5s;
+                    }
+                    &:hover {
+                        path {
+                            fill: $blue-hover;
+                        }
+                    }
+                }*/
+            }
+        }
+    }
+}

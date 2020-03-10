@@ -4,6 +4,7 @@ function httpGet(url) {
         xhr.open('GET', url, true);
 
         xhr.onload = function () {
+            // eslint-disable-next-line
             if (this.status == 200) {
                 resolve(this.response);
             } else {
